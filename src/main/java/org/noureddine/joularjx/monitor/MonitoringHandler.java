@@ -209,7 +209,7 @@ public class MonitoringHandler implements Runnable {
 
             for (StackTraceElement[] stackTrace : entry.getValue()) {
                 for (StackTraceElement stackTraceElement : stackTrace) {
-                    String methodName = stackTraceElement.getClassName() + "." + stackTraceElement.getMethodName();
+                    String methodName = stackTraceElement.getClassName() + "." + stackTraceElement.getMethodName() + " " + stackTraceElement.getLineNumber();
                     if (covers.test(methodName)) {
                         target.merge(methodName, 1, Integer::sum);
                         break;
