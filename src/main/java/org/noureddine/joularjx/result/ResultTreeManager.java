@@ -67,9 +67,10 @@ public class ResultTreeManager {
      */
     public ResultTreeManager(AgentProperties properties, long pid, long startTimestamp) {
         this.properties = properties;
-        
+        String iterationId = System.getenv("ITERATION_ID");
+        if (iterationId == null) iterationId = System.getProperty("ITERATION_ID");
         //Building the path of all the directories
-        this.runDirectoryPath =  GLOBAL_RESULT_DIRECTORY_NAME + "/" + String.format("%s-%d-%d", System.getenv("ITERATION_ID"), pid, startTimestamp);
+        this.runDirectoryPath =  GLOBAL_RESULT_DIRECTORY_NAME + "/" + String.format("%s-%d-%d", iterationId, pid, startTimestamp);
 
         String allDirectoryPath      = runDirectoryPath + "/" + ALL_DIRECTORY_NAME;
         String filteredDirectoryPath = runDirectoryPath + "/" + FILTERED_DIRECTORY_NAME;
