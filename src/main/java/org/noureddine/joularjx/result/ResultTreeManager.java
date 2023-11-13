@@ -69,7 +69,7 @@ public class ResultTreeManager {
         this.properties = properties;
         
         //Building the path of all the directories
-        this.runDirectoryPath =  GLOBAL_RESULT_DIRECTORY_NAME + "/" + String.format("%d-%d", pid, startTimestamp);
+        this.runDirectoryPath =  GLOBAL_RESULT_DIRECTORY_NAME + "/" + String.format("%s-%d-%d", System.getenv("ITERATION_ID"), pid, startTimestamp);
 
         String allDirectoryPath      = runDirectoryPath + "/" + ALL_DIRECTORY_NAME;
         String filteredDirectoryPath = runDirectoryPath + "/" + FILTERED_DIRECTORY_NAME;
