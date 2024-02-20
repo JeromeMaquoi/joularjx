@@ -68,7 +68,7 @@ public class CallTree {
         /*Appening elements to res String in reverse order. The least recent element (the bottom of the stack trace) will be written first, and the most recent one last.*/
         for(int i = this.callTree.size()-1; i >= 0; i--){
             StackTraceElement element = this.callTree.get(i);
-            res += element.getClassName()+"."+element.getMethodName()+";";
+            res += element.getClassName()+"."+element.getMethodName()+" "+element.getLineNumber()+";";
         }
 
         //Removing the last ";"
